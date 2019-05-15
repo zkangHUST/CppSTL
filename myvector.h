@@ -5,11 +5,12 @@ typedef unsigned int  size_t;
 template < class T>
 class Vector {
 public:
-    typedef T * iterator;
+    typedef T* iterator;
     
     Vector();
     Vector(int size, T const& a);
     Vector(const Vector<T> & a);
+    Vector(iterator first, iterator last);
     ~Vector();
     size_t size() const;
     size_t capacity() const;
@@ -61,6 +62,25 @@ Vector<T>::Vector(const Vector<T> & a)
         _buf[i] = a._buf[i];
     }
 }
+
+template<class T>
+Vector<T>::Vector(iterator first, iterator last)
+{
+    _size = last - first;
+    if (_size %2 == 0) {
+        _capacity = _size;
+    } else {
+        _capacity = (_size / 2) * 4; 
+    }
+    _buf = new T[_capacity];
+    int i = 0;
+    for (iterator it = first; it < last; it++) {
+        _buf[i] = *it;
+        i++;
+    }
+
+}
+
 template<class T>
 Vector<T>::~Vector()
 {
