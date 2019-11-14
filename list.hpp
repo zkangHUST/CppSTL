@@ -133,6 +133,8 @@ void list<T>::clear()
         delete p;
         p = q;
     }
+    node->next = node;
+    node->prev = node;
 }
 
 template<class T>
