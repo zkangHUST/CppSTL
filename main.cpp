@@ -1,4 +1,5 @@
 #include <iostream>
+<<<<<<< HEAD
 #include "minstack.hpp"
 using namespace std;
 int main()
@@ -18,4 +19,22 @@ int main()
     t.pop();
   }
   return 0;
+=======
+#include "myvector.h"
+#include<string>
+using namespace std;
+int main()
+{
+    int c = 20;
+    Vector<string> a;
+    Vector<string> b;
+    for (int i = 0 ; i < 3; i++) {
+        a.push_back("hello");
+    }
+    b = a;
+    for (Vector<string>::iterator it = b.begin(); it != b.end(); it++) {
+        cout << *it << " " << endl;
+    }
+    return 0;
+>>>>>>> 1b4e55dde410aab7dfcb0529ed937c7e071f3263
 }
